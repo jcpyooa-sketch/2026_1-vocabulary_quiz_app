@@ -51,7 +51,7 @@ class VocabularyQuizApp:
         self.current = draw_word(self.words, self.rng)
         self.word_var.set(self.current.term)
         self.answer_entry.delete(0, tk.END)
-        self.feedback_var.set("")
+        self.feedback_var.set(f"힌트: {self.current.meaning[0]}")
         self.checked = False
         self.check_button.state(["!disabled"])
         self.answer_entry.focus()
