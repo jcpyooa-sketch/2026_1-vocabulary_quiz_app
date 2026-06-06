@@ -59,9 +59,14 @@ class VocabularyQuizApp:
     def check_current(self) -> None:
         if self.current is None or self.checked:
             return
+        user_input = self.answer_entry.get().strip()
+        if user_input == "":
+            self.feedback_var.set("정답을 입력해주세요.")
+            return
         self.checked = True
         self.total += 1
-        user_input = self.answer_entry.get()
+
+
         if check_answer(self.current, user_input):
             self.score += 1
             self.feedback_var.set("정답입니다!")
